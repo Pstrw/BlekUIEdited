@@ -1,3 +1,16 @@
+for _, gui in pairs(game:GetService("CoreGui").RobloxGui:GetChildren()) do
+   if gui:IsA("ScreenGui") and string.match(gui.Name, "_Secretkey101") then
+       gui:Destroy()
+   end
+end
+
+for _, gui in pairs(game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"):GetChildren()) do
+   if gui:IsA("ScreenGui") and string.match(gui.Name, "_Secretkey101") then
+       gui:Destroy()
+   end
+end
+
+
 --// Destroy other instances
 for _,v in pairs(game.CoreGui:GetChildren()) do
     if v.Name == "dark_UI" then
@@ -6,9 +19,9 @@ for _,v in pairs(game.CoreGui:GetChildren()) do
 end
 
 local dark_UI = Instance.new("ScreenGui")
-dark_UI.Name = "ScreenGui"
+dark_UI.Name = tostring(math.random(0, 9)..math.random(0, 9)..math.random(0, 9)..math.random(0, 9)..math.random(0, 9)..math.random(0, 9)..math.random(0, 9)..math.random(0, 9)..math.random(0, 9)..math.random(0, 9)..math.random(0, 9).."_Secretkey101")
 dark_UI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-dark_UI.Parent = game:GetService("CoreGui").ToastNotification
+dark_UI.Parent = game.CoreGui
 
 local Library = {}
 local TweenService = game:GetService("TweenService")
@@ -23,7 +36,7 @@ function Library:Create(table)
     local windowName = table.Name
 
     local main = Instance.new("Frame")
-    main.Name = "Toast"
+    main.Name = "main"
     main.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
     main.Position = UDim2.fromScale(0.244, 0.292)
     main.Size = UDim2.fromOffset(488, 299)
